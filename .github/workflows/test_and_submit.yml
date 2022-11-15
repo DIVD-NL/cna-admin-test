@@ -22,12 +22,10 @@ jobs:
           cve-org         : ${{ secrets.CVE_ORG }}
           cve-api-key     : ${{ secrets.CVE_API_KEY }}
           cve-environment : test
-          #publish         : ${{ github.event_name != 'pull_request' }}    # Only publish when we merge into the main branch
-          publish         : true
+          publish         : ${{ github.event_name != 'pull_request' }}    # Only publish when we merge into the main branch
           path            : records/                                      # This is where the CVE records live
           ignore          : ""                                            # Don't ignore any checks
           min-reserved    : 10                                            # Keep at least 10 reserved records (for the current year)
           reserve         : 10                                            # Reserve a minimum of 10 records at a time 
-          pr              : true
-          #pr              : ${{ github.event_name != 'pull_request' }}
+          pr              : ${{ github.event_name != 'pull_request' }}
           github-token    : ${{ secrets.GITHUB_TOKEN }}
