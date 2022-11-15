@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       # Check CVE records and publish them    
       - name: CVE RSUS check and upload
-        uses: DIVD-NL/cve-rsus-validate-submit@v1.20-beta
+        uses: DIVD-NL/cve-rsus-validate-submit@v1.2.0-beta
         with: 
           cve-user        : ${{ secrets.CVE_USER }}
           cve-org         : ${{ secrets.CVE_ORG }}
