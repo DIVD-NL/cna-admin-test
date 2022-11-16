@@ -13,10 +13,10 @@ jobs:
     steps:
       # Get the repository's code
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       # Check CVE records and publish them    
       - name: CVE RSUS check and upload
-        uses: DIVD-NL/cve-rsus-validate-submit@v1.2.1-beta
+        uses: DIVD-NL/cve-rsus-validate-submit@v1
         with: 
           cve-user        : ${{ secrets.CVE_USER }}
           cve-org         : ${{ secrets.CVE_ORG }}
@@ -28,4 +28,4 @@ jobs:
           min-reserved    : 10                                            # Keep at least 10 reserved records (for the current year)
           reserve         : 10                                            # Reserve a minimum of 10 records at a time 
           pr              : ${{ github.event_name != 'pull_request' }}
-          github-token    : ${{ secrets.GITHUB_TOKEN }}
+          github-token    : ${{ secrets.GH_TOKEN }}
